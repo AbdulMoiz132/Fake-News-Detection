@@ -1,3 +1,13 @@
+def plot_wordcloud(df, label, title):
+    from wordcloud import WordCloud
+    import matplotlib.pyplot as plt
+    text = ' '.join(df[df['label'] == label]['clean_content'])
+    wc = WordCloud(width=800, height=400, background_color='white').generate(text)
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis('off')
+    plt.title(title)
+    plt.show()
 def plot_wordclouds(df):
     from wordcloud import WordCloud
     import matplotlib.pyplot as plt
@@ -93,4 +103,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     model = train_model(X_train, y_train)
     evaluate_model(model, X_test, y_test)
+    print('Showing word clouds for Fake and Real news...')
+    plot_wordcloud(df, 0, 'Fake News Word Cloud')
+    plot_wordcloud(df, 1, 'Real News Word Cloud')
     plot_wordclouds(df)
