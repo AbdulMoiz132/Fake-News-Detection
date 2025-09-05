@@ -35,7 +35,7 @@ def load_data(fake_path, true_path):
     df = pd.concat([fake_df, true_df], ignore_index=True)
     return df
 
-# Step 2: Preprocess text (to be implemented)
+# Step 2: Preprocess text 
 def preprocess_text(df):
     import nltk
     from nltk.corpus import stopwords
@@ -74,7 +74,7 @@ def preprocess_text(df):
     y = df['label']
     return X, y
 
-# Step 3: Train model (to be implemented)
+# Step 3: Train model 
 
 def train_model(X_train, y_train):
     from sklearn.linear_model import LogisticRegression
@@ -82,7 +82,7 @@ def train_model(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-# Step 4: Evaluate model (to be implemented)
+# Step 4: Evaluate model 
 
 def evaluate_model(model, X_test, y_test):
     from sklearn.metrics import accuracy_score, f1_score
